@@ -44,3 +44,10 @@ INSERT INTO filmes (titulo, genero, duracao, ano)VALUES
 ('Avatar', 'Ficção', '162min', 2009),
 ('John Wick', 'Ação', '101min', 2014),
 ('Toy Story', 'Animação', '81min', 1995);
+
+CREATE TABLE curtidas (
+
+    usuario_id INT,
+    filme_id INT,
+    PRIMARY KEY (usuario_id, filme_id)
+);
