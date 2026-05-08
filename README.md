@@ -8,7 +8,6 @@ CREATE TABLE filmes (
     genero VARCHAR(50),
     duracao VARCHAR(20),
     ano INT,
-    curtidas INT DEFAULT 0
 );
 
 CREATE TABLE favoritos (
