@@ -22,7 +22,7 @@ public class FilmeDAO {
 public FilmeDAO(Connection conn) {
     this.conn = conn;
 }
-    
+    // pega todos os dados dos filmes do banco de dados
     public List<Filme> listarFilmes() throws SQLException {
     List<Filme> lista = new ArrayList<>();
 
@@ -32,7 +32,9 @@ public FilmeDAO(Connection conn) {
     ResultSet rs = stmt.executeQuery();
 
     while (rs.next()) {
+        
         Filme f = new Filme();
+        
         f.setId(rs.getInt("id"));
         f.setTitulo(rs.getString("titulo"));
         f.setGenero(rs.getString("genero"));
@@ -43,5 +45,5 @@ public FilmeDAO(Connection conn) {
     }
 
     return lista;
-}
+    }
 }
