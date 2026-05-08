@@ -18,7 +18,7 @@ public class CurtidaDAO {
     public CurtidaDAO(Connection conn) {
         this.conn = conn;
     }
-
+    //função de curtir
     public void curtir(int usuarioId, int filmeId) throws SQLException {
 
         String sql = "INSERT INTO curtidas (usuario_id, filme_id) VALUES (?, ?) ON CONFLICT DO NOTHING";
@@ -29,7 +29,7 @@ public class CurtidaDAO {
 
         stmt.executeUpdate();
     }
-
+        //função de colocar as curtidas no vanco de dados
     public int contarCurtidas(int filmeId) throws SQLException {
         String sql = "SELECT COUNT(*) FROM curtidas WHERE filme_id = ?";
 
