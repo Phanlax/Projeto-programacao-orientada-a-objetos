@@ -43,6 +43,7 @@ CREATE TABLE lista_reproducao (
 
 INSERT INTO filmes (titulo, genero, duracao, ano)
 VALUES
+
 ('Vingadores: Ultimato', 'Ação', '181min', 2019, 0),
 
 ('Batman', 'Ação', '176min', 2022, 0),
