@@ -12,6 +12,7 @@ import proj.projetofeitv.dao.Conexao;
 import proj.projetofeitv.dao.CurtidaDAO;
 import proj.projetofeitv.dao.FavoritoDAO;
 import proj.projetofeitv.dao.FilmeDAO;
+import proj.projetofeitv.dao.ListaReproducaoDAO;
 import proj.projetofeitv.model.Filme;
 
 /**
@@ -70,10 +71,15 @@ public class ControllerFilme {
     //função de remover dos favoritos
     public void removerFavorito(int usuarioId, int filmeId) {
 
-    try (Connection conn = new Conexao().getConnection()) {
+     try (Connection conn = new Conexao().getConnection()) {
 
-        FavoritoDAO dao = new FavoritoDAO(conn);
-        dao.removerFavorito(usuarioId, filmeId);
+        // remove dos favoritos
+        FavoritoDAO favoritoDAO = new FavoritoDAO(conn);
+        favoritoDAO.removerFavorito(usuarioId, filmeId);
+
+        //  remove também da lista
+        ListaReproducaoDAO listaDAO = new ListaReproducaoDAO(conn);
+        listaDAO.remover(usuarioId, filmeId);
 
     } catch (SQLException e) {
         e.printStackTrace();
@@ -93,4 +99,100 @@ public class ControllerFilme {
         return new ArrayList<>();
     }
    }
+    //busca a lista de reprodução
+    public List<Filme> buscarListaReproducao(int usuarioId) {
+
+    try (Connection conn = new Conexao().getConnection()) {
+
+        ListaReproducaoDAO dao = new ListaReproducaoDAO(conn);
+        return dao.buscarLista(usuarioId);
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+        return new ArrayList<>();
+    }
+}
+    //adiciona a lista
+    public void adicionarLista(int usuarioId, int filmeId) {
+
+    try (Connection conn = new Conexao().getConnection()) {
+
+        ListaReproducaoDAO dao = new ListaReproducaoDAO(conn);
+        dao.adicionar(usuarioId, filmeId);
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+}
+    //remove a lista
+    public void removerLista(int usuarioId, int filmeId) {
+
+    try (Connection conn = new Conexao().getConnection()) {
+
+        ListaReproducaoDAO dao = new ListaReproducaoDAO(conn);
+        dao.remover(usuarioId, filmeId);
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+  }
+    //pesquisa os filmes
+    public List<Filme> pesquisarFilmes(String texto) {
+
+    try (Connection conn = new Conexao().getConnection()) {
+
+        FilmeDAO dao = new FilmeDAO(conn);
+
+        return dao.pesquisarFilmes(texto);
+
+    } catch (SQLException e) {
+
+        e.printStackTrace();
+        return new ArrayList<>();
+    }
+}   // ve se ja favoritou
+    public boolean jaFavoritou(int usuarioId, int filmeId) {
+
+    try (Connection conn = new Conexao().getConnection()) {
+
+        FavoritoDAO dao = new FavoritoDAO(conn);
+
+        return dao.jaFavoritou(usuarioId, filmeId);
+
+    } catch (SQLException e) {
+
+        e.printStackTrace();
+        return false;
+    }
+}
+    //verifica a curtida
+    public boolean jaCurtiu(int usuarioId, int filmeId) {
+
+    try (Connection conn = new Conexao().getConnection()) {
+
+        CurtidaDAO dao = new CurtidaDAO(conn);
+
+        return dao.jaCurtiu(usuarioId, filmeId);
+
+    } catch (SQLException e) {
+
+        e.printStackTrace();
+        return false;
+    }
+}
+    //remove a curtida
+    public void removerCurtida(int usuarioId, int filmeId) {
+
+    try (Connection conn = new Conexao().getConnection()) {
+
+        CurtidaDAO dao = new CurtidaDAO(conn);
+
+        dao.removerCurtida(usuarioId, filmeId);
+
+    } catch (SQLException e) {
+
+        e.printStackTrace();
+    }
+}
+    
 }

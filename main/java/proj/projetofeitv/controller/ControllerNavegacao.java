@@ -6,6 +6,7 @@ package proj.projetofeitv.controller;
 import proj.projetofeitv.model.Usuario;
 import proj.projetofeitv.view.TelaCadastro;
 import proj.projetofeitv.view.TelaFavoritos;
+import proj.projetofeitv.view.TelaListaReproducao;
 import proj.projetofeitv.view.TelaLogin;
 import proj.projetofeitv.view.TelaPrincipal;
 /**
@@ -17,6 +18,7 @@ public class ControllerNavegacao {
     private TelaCadastro telaCadastro;
     private TelaPrincipal telaPrincipal;
     private TelaFavoritos telaFavoritos;
+    private TelaListaReproducao telaListaReproducao;
 
     public void iniciar() {
         telaLogin = new TelaLogin(this);
@@ -65,7 +67,33 @@ public class ControllerNavegacao {
         telaPrincipal.setVisible(true);
     
     }
-            
+    public void voltaLoginFavoritos(){
+        telaFavoritos.dispose();
+        
+        telaLogin = new TelaLogin(this);
+        telaLogin.setVisible(true);
+    }
+    
+    public void abrirListaReproducao(){
+        telaFavoritos.dispose();
+        
+        telaListaReproducao = new TelaListaReproducao(this);
+        telaListaReproducao.setVisible(true);
+    }
+    
+    public void voltaPrincipalLista(){
+        telaListaReproducao.dispose();
+        
+        telaPrincipal = new TelaPrincipal(this);
+        telaPrincipal.setVisible(true);
+    
+    }
+    public void voltaFavoritosLista(){
+        telaListaReproducao.dispose();
+        
+        telaFavoritos = new TelaFavoritos(this);
+        telaFavoritos.setVisible(true);
+    }
             
 private Usuario usuarioLogado;
 
