@@ -1,4 +1,4 @@
-# Projeto-programa-o-orientada-a-objetos
+# Projeto-programação-orientada-a-objetos
 Repositório relacionado ao desenvolvimento do projeto de Programação orientada a objetos
 
 CREATE TABLE usuarios (
@@ -9,13 +9,14 @@ CREATE TABLE usuarios (
 );
 
 
-CREATE TABLE filmes (
+CCREATE TABLE filmes (
 
     id SERIAL PRIMARY KEY,
-    titulo VARCHAR(100),
-    genero VARCHAR(50),
-    duracao VARCHAR(20),
-    ano INT,
+    titulo VARCHAR(100) NOT NULL,
+    genero VARCHAR(50) NOT NULL,
+    duracao VARCHAR(20) NOT NULL,
+    ano INT NOT NULL,
+    curtidas INT DEFAULT 0
 );
 
 CREATE TABLE favoritos (
@@ -42,23 +43,39 @@ CREATE TABLE lista_reproducao (
 
 INSERT INTO filmes (titulo, genero, duracao, ano)
 VALUES
-('Vingadores: Ultimato', 'Ação', '181min', 2019),
+('Vingadores: Ultimato', 'Ação', '181min', 2019, 0),
 
-('Batman', 'Ação', '176min', 2022),
+('Batman', 'Ação', '176min', 2022, 0),
 
-('Interestelar', 'Ficção', '169min', 2014),
+('Interestelar', 'Ficção', '169min', 2014, 0),
 
-('Matrix', 'Ficção', '136min', 1999),
+('Matrix', 'Ficção', '136min', 1999, 0),
 
-('Coringa', 'Drama', '122min', 2019),
+('Coringa', 'Drama', '122min', 2019, 0),
 
-('Titanic', 'Romance', '195min', 1997),
+('Titanic', 'Romance', '195min', 1997, 0),
 
-('Avatar', 'Ficção', '162min', 2009),
+('Avatar', 'Ficção', '162min', 2009, 0),
 
-('John Wick', 'Ação', '101min', 2014),
+('John Wick', 'Ação', '101min', 2014, 0),
 
-('Toy Story', 'Animação', '81min', 1995);
+('Toy Story', 'Animação', '81min', 1995, 0),
+
+('Vingadores: Ultimato', 'Ação', '3h 1min', 2019, 0),
+
+('Jogos Vorazes', 'Ação', '2h 22min', 2012, 0),
+
+('Transformers', 'Ação', '2h 24min', 2007, 0),
+
+('Invocação do Mal', 'Terror', '1h 52min', 2013, 0),
+
+('Corra!', 'Terror', '1h 44min', 2017, 0),
+
+('Barbie', 'Comédia', '1h 54min', 2023, 0),
+
+('Top Gun: Maverick', 'Ação', '2h 11min', 2022, 0),
+
+('Deadpool', 'Ação', '1h 48min', 2016, 0);
 
 
 CREATE TABLE curtidas (
