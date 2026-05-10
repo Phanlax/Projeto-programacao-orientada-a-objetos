@@ -46,4 +46,35 @@ public FilmeDAO(Connection conn) {
 
     return lista;
     }
+    //função de pesquisar os filmes na tela principal
+    public List<Filme> pesquisarFilmes(String texto) throws SQLException {
+
+    List<Filme> lista = new ArrayList<>();
+
+    String sql = """
+        SELECT * FROM filmes
+        WHERE LOWER(titulo) LIKE LOWER(?)
+    """;
+
+    PreparedStatement stmt = conn.prepareStatement(sql);
+
+    stmt.setString(1, "%" + texto + "%");
+
+    ResultSet rs = stmt.executeQuery();
+
+    while (rs.next()) {
+
+        Filme f = new Filme();
+
+        f.setId(rs.getInt("id"));
+        f.setTitulo(rs.getString("titulo"));
+        f.setGenero(rs.getString("genero"));
+        f.setDuracao(rs.getString("duracao"));
+        f.setAno(rs.getInt("ano"));
+
+        lista.add(f);
+    }
+
+    return lista;
+}
 }

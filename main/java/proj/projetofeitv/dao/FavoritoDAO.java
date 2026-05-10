@@ -78,6 +78,22 @@ public class FavoritoDAO {
     }
 
     return lista;
+}   //função para saber se o usuario ja favoritou
+    public boolean jaFavoritou(int usuarioId, int filmeId) throws SQLException {
+
+    String sql = """
+        SELECT * FROM favoritos
+        WHERE usuario_id = ? AND filme_id = ?
+    """;
+
+    PreparedStatement stmt = conn.prepareStatement(sql);
+
+    stmt.setInt(1, usuarioId);
+    stmt.setInt(2, filmeId);
+
+    ResultSet rs = stmt.executeQuery();
+
+    return rs.next();
 }
 }
 
