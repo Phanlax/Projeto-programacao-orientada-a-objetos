@@ -5,7 +5,7 @@ Sistema desktop de filmes desenvolvido em Java com interface gráfica Swing e ba
 O projeto permite que usuários realizem login, visualizem filmes em formato de cards, curtam filmes, adicionem aos favoritos e organizem uma lista de reprodução personalizada.
 
 ## 🚀 Tecnologias Utilizadas
--Java
+- Java
 -Java Swing
 -PostgreSQL
 -JDBC
