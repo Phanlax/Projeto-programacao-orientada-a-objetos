@@ -33,10 +33,8 @@ public class ListaReproducaoDAO {
         """;
 
         PreparedStatement stmt = conn.prepareStatement(sql);
-
         stmt.setInt(1, usuarioId);
         stmt.setInt(2, filmeId);
-
         stmt.executeUpdate();
     }
 
@@ -49,10 +47,8 @@ public class ListaReproducaoDAO {
         """;
 
         PreparedStatement stmt = conn.prepareStatement(sql);
-
         stmt.setInt(1, usuarioId);
         stmt.setInt(2, filmeId);
-
         stmt.executeUpdate();
     }
 
@@ -71,9 +67,7 @@ public class ListaReproducaoDAO {
 
         PreparedStatement stmt = conn.prepareStatement(sql);
         stmt.setInt(1, usuarioId);
-
         ResultSet rs = stmt.executeQuery();
-
         while (rs.next()) {
 
             Filme f = new Filme();

@@ -24,14 +24,17 @@ public class ControllerFilme {
    
     // função de buscar filmes
    public List<Filme> buscarFilmes() {
+       
         try (Connection conn = new Conexao().getConnection()) {
             FilmeDAO dao = new FilmeDAO(conn);
             return dao.listarFilmes();
+            
         } catch (SQLException e) {
             e.printStackTrace();
             return new ArrayList<>();
         }
     }
+   
     // função de pegar o numero de curtidas
     public int getCurtidas(int filmeId) {
         try (Connection conn = new Conexao().getConnection()) {

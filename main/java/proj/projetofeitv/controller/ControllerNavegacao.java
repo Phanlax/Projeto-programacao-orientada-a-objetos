@@ -19,7 +19,7 @@ public class ControllerNavegacao {
     private TelaPrincipal telaPrincipal;
     private TelaFavoritos telaFavoritos;
     private TelaListaReproducao telaListaReproducao;
-
+    //primeira tela
     public void iniciar() {
         telaLogin = new TelaLogin(this);
         telaLogin.setVisible(true);
@@ -45,6 +45,14 @@ public class ControllerNavegacao {
     telaPrincipal = new TelaPrincipal(this);
     telaPrincipal.setVisible(true);
 }
+    //  Funções dos botões de sair 
+    public void voltaLoginFavoritos(){
+        telaFavoritos.dispose();
+        
+        telaLogin = new TelaLogin(this);
+        telaLogin.setVisible(true);
+    }
+    
     public void voltarLoginPrincipal() {
        telaPrincipal.dispose();
 
@@ -60,6 +68,8 @@ public class ControllerNavegacao {
         telaFavoritos.setVisible(true);
     }
     
+   
+    //sai da tela favoritos
     public void voltaPrincipalFavoritos(){
         telaFavoritos.dispose();
         
@@ -67,12 +77,7 @@ public class ControllerNavegacao {
         telaPrincipal.setVisible(true);
     
     }
-    public void voltaLoginFavoritos(){
-        telaFavoritos.dispose();
-        
-        telaLogin = new TelaLogin(this);
-        telaLogin.setVisible(true);
-    }
+     
     
     public void abrirListaReproducao(){
         telaFavoritos.dispose();
@@ -96,6 +101,7 @@ public class ControllerNavegacao {
     }
             
 private Usuario usuarioLogado;
+
 
 public Usuario getUsuarioLogado() {
     return usuarioLogado;

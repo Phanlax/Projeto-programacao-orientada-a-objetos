@@ -22,6 +22,7 @@ public class FilmeDAO {
 public FilmeDAO(Connection conn) {
     this.conn = conn;
 }
+
     // pega todos os dados dos filmes do banco de dados
     public List<Filme> listarFilmes() throws SQLException {
     List<Filme> lista = new ArrayList<>();
@@ -46,6 +47,7 @@ public FilmeDAO(Connection conn) {
 
     return lista;
     }
+    
     //função de pesquisar os filmes na tela principal
     public List<Filme> pesquisarFilmes(String texto) throws SQLException {
 
@@ -57,11 +59,8 @@ public FilmeDAO(Connection conn) {
     """;
 
     PreparedStatement stmt = conn.prepareStatement(sql);
-
     stmt.setString(1, "%" + texto + "%");
-
     ResultSet rs = stmt.executeQuery();
-
     while (rs.next()) {
 
         Filme f = new Filme();

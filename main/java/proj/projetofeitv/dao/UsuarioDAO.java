@@ -19,22 +19,20 @@ public class UsuarioDAO {
     public UsuarioDAO(Connection conn) {
         this.conn = conn;
     }
+    
     //função de inserir os dados do usuario no banco de dados
     public void inserir(Usuario usuario) throws SQLException {
 
         String sql = "INSERT INTO usuarios (usuario, senha) VALUES (?, ?)";
 
         PreparedStatement statement = conn.prepareStatement(sql);
-
         statement.setString(1, usuario.getUsuario());
         statement.setString(2, usuario.getSenha());
-  
-
         statement.executeUpdate();
-
         statement.close();
         
     }
+    
        // função que efetua o login do usuario
    public Usuario login(String usuario, String senha) throws SQLException {
 
@@ -43,7 +41,6 @@ public class UsuarioDAO {
     PreparedStatement stmt = conn.prepareStatement(sql);
     stmt.setString(1, usuario);
     stmt.setString(2, senha);
-
     var rs = stmt.executeQuery();
 
     if (rs.next()) {
@@ -51,9 +48,7 @@ public class UsuarioDAO {
             rs.getString("usuario"),
             rs.getString("senha")
         );
-
-        u.setId(rs.getInt("id")); //retorna o id
-
+        u.setId(rs.getInt("id")); //retorna o id do usuario logado
         return u;
     }
 

@@ -19,7 +19,6 @@ public class ControllerLogin {
     private ControllerNavegacao nav;
   
     
-    
     public ControllerLogin(TelaLogin view, ControllerNavegacao nav) {
         this.view = view;
         this.nav = nav;
@@ -39,17 +38,13 @@ public class ControllerLogin {
     try (Connection conn = new Conexao().getConnection()) {
 
         UsuarioDAO dao = new UsuarioDAO(conn);
-
-        Usuario usuarioLogado = dao.login(usuario, senha); // 🔥 MUDOU AQUI
+        Usuario usuarioLogado = dao.login(usuario, senha);
 
         if (usuarioLogado != null) {
-            nav.setUsuarioLogado(usuarioLogado);
-            
+            nav.setUsuarioLogado(usuarioLogado);          
             view.mostrarMensagem("Login realizado com sucesso!");
 
-            
             int id = usuarioLogado.getId();
-
             nav.abrirPrincipal();
 
         } else {

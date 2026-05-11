@@ -46,8 +46,6 @@ public class FavoritoDAO {
 }
     
     
-    
-    
     public List<Filme> buscarFavoritos(int usuarioId) throws SQLException {
 
     List<Filme> lista = new ArrayList<>();

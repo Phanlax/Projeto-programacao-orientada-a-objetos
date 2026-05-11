@@ -312,7 +312,7 @@ public class TelaListaReproducao extends javax.swing.JFrame {
 
     private void botaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSairActionPerformed
         // TODO add your handling code here:
-        nav.voltarLoginPrincipal();
+        nav.voltaLoginLista();
     }//GEN-LAST:event_botaoSairActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

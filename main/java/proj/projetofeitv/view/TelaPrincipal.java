@@ -100,21 +100,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
             btnCurtir.addActionListener(e -> {
 
             if (controller.jaCurtiu(usuarioId, f.getId())) {
-
                 controller.removerCurtida(usuarioId, f.getId());
-
                 btnCurtir.setBackground(null);
 
             } else {
 
                  controller.curtir(usuarioId, f.getId());
-
                  btnCurtir.setBackground(new Color(100, 180, 255));
             }
 
              int novasCurtidas =
                  controller.getCurtidas(f.getId());
-
                  btnCurtir.setText("👍 " + novasCurtidas);
             });
             
@@ -122,30 +118,23 @@ public class TelaPrincipal extends javax.swing.JFrame {
             //botão favoritar
             JButton btnFavorito = new JButton("❤️");
 
-                if (favoritado) {
-                                              //vermelho mais claro
+                if (favoritado) {             //vermelho mais claro                  
                   btnFavorito.setBackground(new Color(220, 60, 60));
-
+                  
                 } else {
-
                   btnFavorito.setBackground(null);
                 }
                 
-            
-
+         
             // ação do botão de favoritar
             btnFavorito.addActionListener(e -> {
 
             if (controller.jaFavoritou(usuarioId, f.getId())) {
-
                     controller.removerFavorito(usuarioId, f.getId());
-
                     btnFavorito.setBackground(null);
 
             } else {
-
                     controller.favoritar(usuarioId, f.getId());
-
                     btnFavorito.setBackground(new Color(220, 60, 60));
                     }
             });
