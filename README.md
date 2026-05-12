@@ -68,7 +68,9 @@ O sistema utiliza:
 - Integração Java + PostgreSQL
 ## Funcionamento do programa
 ### Diagrama de classes
-<img width="1082" height="724" alt="image" src="https://github.com/user-attachments/assets/3446062e-df28-47d8-bd01-b53834efbd90" />
+<img width="1000" height="724" alt="image" src="https://github.com/user-attachments/assets/3446062e-df28-47d8-bd01-b53834efbd90" />
+
+
 
 ### 📌 Exemplo da tabela filmes
 CREATE TABLE filmes (
