@@ -48,43 +48,6 @@ O projeto permite que usuários realizem login, visualizem filmes em formato de 
 - curtidas
 - favoritos
 - lista_reproducao
-### 📌 Exemplo da tabela filmes
-CREATE TABLE filmes (
-
-    id SERIAL PRIMARY KEY,
-
-    titulo VARCHAR(100) NOT NULL,
-
-    genero VARCHAR(50) NOT NULL,
-
-    duracao VARCHAR(20) NOT NULL,
-
-    ano INT NOT NULL,
-
-    curtidas INT DEFAULT 0
-);
-### ▶️ Como Executar
-- 1. Clonar o repositório
-- git clone SEU_LINK_GITHUB
-- 2. Criar banco PostgreSQL
-
-- Crie um banco chamado:
-
-- Projeto
-- 3. Executar os scripts SQL
-
-Crie as tabelas necessárias no PostgreSQL.
-
-4. Configurar conexão
-
-No arquivo de conexão JDBC, configure:
-
-url
-usuario
-senha
-5. Executar o projeto
-
-Abra no Apache NetBeans e execute a aplicação.
 
 ### 📸 Interface
 
@@ -103,6 +66,26 @@ O sistema utiliza:
 - Eventos no Swing
 - Manipulação dinâmica de componentes
 - Integração Java + PostgreSQL
+## Funcionamento do programa
+### Diagrama de classes
+<img width="1082" height="724" alt="image" src="https://github.com/user-attachments/assets/3446062e-df28-47d8-bd01-b53834efbd90" />
+
+### 📌 Exemplo da tabela filmes
+CREATE TABLE filmes (
+    
+    id SERIAL PRIMARY KEY,
+
+    titulo VARCHAR(100) NOT NULL,
+
+    genero VARCHAR(50) NOT NULL,
+
+    duracao VARCHAR(20) NOT NULL,
+
+    ano INT NOT NULL,
+
+    curtidas INT DEFAULT 0
+);
+
 ## 👨‍💻 Autor
 
 - Desenvolvido por Gustavo Santos.
